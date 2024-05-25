@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const Contribution = require("./models/contributionsSchema"); // Adjust the path if necessary
 const WOCUser = require("./models/WOCUser")
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URL)
     .then(() => {
         console.log('Connected to MongoDB');
     })
@@ -25,7 +25,13 @@ const client = new Discord.Client({
 client.login(process.env.BOT_TOKEN);
 
 client.on("ready", () => {
+
+    setInterval(() => {
+        fetch("http://localhost:3000")
+        .catch((err) => {console.log(err)});
+    },840000)
     console.log("Bot started");
+
 });
 
 client.on("messageCreate", async (message) => {

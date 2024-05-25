@@ -14,7 +14,7 @@ app.use(cors());
 
 
 app.get('/',(req,res)=>{
-res.json({status:true,message:"connection established"});
+    res.json({status:true,message:"connection established"});
 });
 
 
