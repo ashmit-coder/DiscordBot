@@ -27,9 +27,9 @@ client.login(process.env.BOT_TOKEN);
 client.on("ready", () => {
 
     setInterval(() => {
-        fetch("http://localhost:3000")
+        fetch("https://discordbot-adh7.onrender.com")
         .catch((err) => {console.log(err)});
-    },840000)
+    },600000)
     console.log("Bot started");
 
 });
